@@ -7,6 +7,8 @@ module.exports = {
     './app/assets/stylesheets/**/*.css',
     './app/views/**/*.{html,html.erb,erb}',
     './app/javascript/components/**/*.js',
+    './app/javascript/**/*.{vue,js,ts,jsx,tsx}',
+    './app/**/*.{vue,js,ts,jsx,tsx}',
   ],
   theme: {
     fontFamily: {
