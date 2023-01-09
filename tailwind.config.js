@@ -17,8 +17,11 @@ module.exports = {
         "Helvetica Neue", "sans-serif"],
       'mono': ["Consolas", "Menlo", "Monaco", "Andale Mono", "Ubuntu Mono", "monospace"]
     },
-    extend: {
-    },
+      extend: {
+          animation: {
+              'spin-slow': 'spin 5s linear infinite',
+          },
+      },
   },
   corePlugins: {
     aspectRatio: false,
