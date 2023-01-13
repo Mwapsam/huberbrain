@@ -5,16 +5,26 @@ import { getProducts } from '../../services/products.service';
 
 const List = () => {
   const [query, setQuery] = useState('');
-  const products = useSelector((state) => state.products.products);
+  const [message, setMessage] = useState('');
+
+  const {products, status} = useSelector((state) => state.products);
+
   const dispatch = useDispatch();
 
   const handleSubmit = () => {
-    dispatch(getProducts({query}))
+    if(query !== "") {
+      dispatch(getProducts({query}))
+      .then(item => {
+        if (item.payload !== 0) {
+          setMessage("Not found!");
+        }
+      })
+    }
   }
 
   return (
     <>
-      {products.length === 0 ? <Search handleSubmit={handleSubmit} setQuery={setQuery} /> :
+      {products.length === 0 ? <Search handleSubmit={handleSubmit} getProducts={getProducts} setQuery={setQuery} products={products} message={message} status={status} /> :
         <Results products={products} />
       }
     </>

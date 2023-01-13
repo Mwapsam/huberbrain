@@ -5,6 +5,7 @@ const productSlice = createSlice({
   name: 'products',
   initialState: {
     products: [],
+    message: "",
     status: null,
   },
   extraReducers: {
@@ -15,9 +16,11 @@ const productSlice = createSlice({
     [getProducts.fulfilled]: (state, { payload }) => {
       state.products = payload;
       state.status = 'success';
+      state.message = "";
       state.isProductStored = true;
     },
-    [getProducts.rejected]: (state) => {
+    [getProducts.rejected]: (state, payload) => {
+      state.message = payload.error.message;
       state.status = 'failed';
       state.isProductStored = false;
     },

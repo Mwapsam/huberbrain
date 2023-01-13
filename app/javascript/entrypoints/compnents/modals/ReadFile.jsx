@@ -18,7 +18,6 @@ const ReadFile = ({isOpen, handleOpen, file}) => {
                 <h1 className="text-xl mb-4 font-bold text-slate-500">{file.name}</h1>
                 <p className='break-words py-5'>{text}</p> 
                 <button className="bg-red-500 px-4 py-2 rounded text-md text-white" onClick={handleOpen}>Close</button>
-                <button className="bg-indigo-500 px-7 py-2 ml-2 rounded-md text-md text-white font-semibold">Download</button>
             </div>
         </div>
         )}

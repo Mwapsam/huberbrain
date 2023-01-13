@@ -13,12 +13,12 @@ export const createProduct = createAsyncThunk(
 export const getProducts = createAsyncThunk(
     'products/getProducts',
     async ({query}) => {
-      try{
+    try {
         const prod = await axios.post('/products/search', {query});
         const res = await prod.data;
         return res;
       } catch(e) {
-        throw Error(e)
+        throw new Error(e.response.statusText)
       }
     },
 );

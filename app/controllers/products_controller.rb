@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
             products = Product.product_search(params[:query]).order(created_at: :desc)
             render json: products, status: 200
         else
-            products = []
+            render json: products = [], status: 404
         end
     end
 
